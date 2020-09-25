@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
-
-const SubteamSchema = require('./subteam');
-const PermissionSchema = require('./role');
+import * as mongoose from 'mongoose';
+// eslint-disable-next-line import/no-cycle
+import SubteamSchema from './subteam';
+import PermissionSchema from './role';
 
 const UserSchema = mongoose.Schema({
   username: String,

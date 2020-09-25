@@ -2,22 +2,34 @@
   "name": "woodie",
   "version": "1.0.0",
   "description": "Woodie is the backend server for FRCMS.",
-  "main": "app.js",
+  "main": "./src/app.js",
   "repository": "git@github.com:frcms/woodie",
   "author": "",
   "license": "MPL-2.0",
+  "scripts": {
+    "build": "yarn babel src -d dist",
+    "lint": "yarn eslint ./",
+    "start": "yarn build && nodemon dist/app.js"
+  },
   "bugs": {
     "url": "https://github.com/frcms/woodie/issues"
   },
   "homepage": "https://github.com/frcms/woodie#readme",
   "dependencies": {
+    "@babel/runtime": "^7.11.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.10.7"
   },
   "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-transform-runtime": "^7.11.5",
+    "@babel/preset-env": "^7.11.5",
     "eslint": "^7.9.0",
     "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.0"
+    "eslint-plugin-import": "^2.22.0",
+    "nodemon": "^2.0.4",
+    "regenerator-runtime": "^0.13.7"
   }
 }
