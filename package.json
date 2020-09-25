@@ -1,0 +1,22 @@
+{
+  "name": "woodie",
+  "version": "1.0.0",
+  "description": "Woodie is the backend server for FRCMS.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frcms/woodie.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frcms/woodie/issues"
+  },
+  "homepage": "https://github.com/frcms/woodie#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
