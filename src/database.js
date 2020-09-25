@@ -13,3 +13,6 @@ mongoose.connect(process.env.MONGODB_URI, {
 mongoose.connection.on('open', () => {
   console.log('Connected to MongoDB');
 });
+
+// eslint-disable-next-line import/prefer-default-export
+export { mongoose };
