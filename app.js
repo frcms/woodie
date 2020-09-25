@@ -1,14 +1,13 @@
-const express = require('express')
-const app = express()
-const port = 3000 || process.env.PORT
+const express = require('express');
 
-var rootRouter = require('./routes/root')
-var apiRouter = require('./routes/api')
+const app = express();
+const port = 3000 || process.env.PORT;
 
-var db = require('./lib/database')
+const rootRouter = require('./routes/root');
+const apiRouter = require('./routes/api');
 
-app.use("/", rootRouter)
-app.use("/api", apiRouter)
+app.use('/', rootRouter);
+app.use('/api', apiRouter);
 
 app.listen(port, () => {
   console.log(`
@@ -22,6 +21,6 @@ app.listen(port, () => {
  @@@@@@@@         @@@@@@@@   @@@@@@@@    @@@@@@@@@@@@@@@@&   @@@@@@@  @@@@@@@@@  @@@@@@@  @@@@@@@@@@@@@@@@@@  
  @@@@@@@@         @@@@@@@@   @@@@@@@@      @@@@@@@@@@@      @@@@@@@   @@@@@@@@  &@@@@@@      @@@@@@@@@@@@     
 
-  `)
-  console.log('FRCMS Woodie is now listening on port '+port)
-})
+  `);
+  console.log(`FRCMS Woodie is now listening on port ${port}`);
+});
