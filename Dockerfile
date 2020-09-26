@@ -1,14 +1,15 @@
 FROM node:12.18.4-alpine3.12
-WORKDIR /app
+
+RUN mkdir /opt/wodie
+
+COPY . /opt/woodie
+WORKDIR /opt/woodie
 
 RUN npm install yarn
 
-COPY . .
+COPY . /opt/woodie
 
 RUN yarn
-
-RUN ls
-
 RUN yarn build
 
-CMD ["node", "dist/app.js"]
+CMD ["node", "/opt/woodie/dist/app.js"]
