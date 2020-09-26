@@ -9,7 +9,8 @@
   "scripts": {
     "build": "yarn tsc --outDir dist --project ./ --pretty",
     "lint": "yarn eslint --ext .js,.ts, ./",
-    "start": "yarn build && yarn nodemon --watch 'src/**/*.ts' --ignore 'src/__tests__/*.ts' --exec \"ts-node src/app.ts\""
+    "start": "yarn build && yarn nodemon --watch 'src/**/*.ts' --ignore 'src/__tests__/*.ts' --exec \"ts-node src/app.ts\"",
+    "test": "echo 1"
   },
   "bugs": {
     "url": "https://github.com/frcms/woodie/issues"
