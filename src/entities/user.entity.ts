@@ -1,5 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
+// eslint-disable-next-line import/no-cycle
+import Subteam from './subteam.entity';
+
 export interface Name {
   first: string;
   last: string;
@@ -18,6 +21,9 @@ export class User {
 
   @Column()
   password!: string;
+
+  @Column()
+  subteam!: Subteam;
 
   // @todo add back
   // subteam: SubteamSchema,
