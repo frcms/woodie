@@ -9,4 +9,6 @@ RUN yarn
 
 RUN ls
 
-CMD ["yarn", "start"]
+RUN yarn build
+
+CMD ["node", "dist/app.js"]
