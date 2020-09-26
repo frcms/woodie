@@ -1,3 +1,5 @@
+import 'reflect-metadata'; // Required for TypeORM to work properly
+
 import express from 'express';
 import rootRouter from './routes/root';
 import apiRouter from './routes/api';
