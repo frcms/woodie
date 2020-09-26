@@ -12,4 +12,4 @@ COPY . /opt/woodie
 RUN yarn
 RUN yarn build
 
-CMD ["node", "/opt/woodie/dist/app.ts"]
+CMD ["node", "/opt/woodie/dist/app.js"]
