@@ -1,4 +1,4 @@
-FROM node:12 AS base
+FROM node:12.18.4-alpine3.12
 WORKDIR /app
 
 RUN npm install yarn
