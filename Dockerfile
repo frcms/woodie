@@ -1,6 +1,6 @@
 FROM node:12.18.4-alpine3.12
 
-RUN mkdir /opt/wodie
+RUN mkdir /opt/woodie
 
 COPY . /opt/woodie
 WORKDIR /opt/woodie
