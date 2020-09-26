@@ -1,5 +1,9 @@
 # Woodie
 
+[![Last Git commit](https://img.shields.io/github/last-commit/frcms/woodie)](https://github.com/frcms/woodie/commits/master) [![David](https://img.shields.io/david/frcms/woodie)](package.json) [![License](https://img.shields.io/github/license/frcms/woodie)](LICENSE) [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/frcms/woodie/run%20tests)](https://github.com/frcms/woodie/blob/master/.github/workflows/test.yml)
+
+<!-- @todo badges for codacy, discord, codecov, commitizen friendly -->
+
 Woodie is the JavaScript backend server for FRCMS — a content management system for First Robotics teams. Woodie's written in JavaScript, uses MongoDB to store data, and uses Express to handle HTTP requests.
 
 * **[📖 Documentation](https://dev.frcms.app)**
