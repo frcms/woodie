@@ -4,7 +4,7 @@
 
 <!-- @todo badges for discord, codecov, commitizen friendly -->
 
-Woodie is the JavaScript backend server for FRCMS — a content management system for First Robotics teams. Woodie's written in JavaScript, uses MongoDB to store data, and uses Express to handle HTTP requests.
+Woodie is the JavaScript backend server for FRCMS — a content management system for First Robotics teams. Woodie's written in TypeScript, uses PostgreSQL to store data, and uses Express to handle HTTP requests.
 
 * **[📖 Documentation](https://dev.frcms.app)**
 
