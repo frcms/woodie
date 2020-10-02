@@ -26,15 +26,21 @@ export default class UserController {
     return connection;
   }
 
-  async createUser(username: string, email: string, subteam: Subteam, password: string):
-  Promise<User> {
+  async createUser(
+    username: string,
+    email: string,
+    subteam: Subteam,
+    password: string,
+  ): Promise<User> {
     const user = this.repository.create({
       username,
       email,
       subteam,
       password,
     });
+
     await this.repository.save(user);
+
     return user;
   }
 
@@ -42,9 +48,8 @@ export default class UserController {
     await this.repository.update(id, update);
   }
 
-  async deleteUser(id: number): Promise<boolean> {
+  async deleteUser(id: number): Promise<void> {
     await this.repository.delete(id);
-    return true;
   }
 
   async getUser(id: number): Promise<User | undefined> {
