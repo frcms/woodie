@@ -4,6 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import express from 'express';
+import * as bcrypt from 'bcrypt';
 
 import UserController from '../../../controllers/user.controller';
 
@@ -30,7 +31,10 @@ router.post('/login', (req, res) => {
 router.post('/register', async (req, res) => {
   console.log(req.body);
   const user = req.body as UserObject;
-  await uc.createUser(user.username, user.email, user.password);
+  const hash = bcrypt.hash(user.password, 10, (_err) => {
+    if (_err) console.error(_err);
+  });
+  await uc.createUser(user.username, user.email, await hash);
 
   res.status(200).send({
     code: 200,
