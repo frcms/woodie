@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
   res.status(200).send({
     code: 200,
     payload: {
-      message: 'Hello, World!',
+      message: 'Hello, World! Please visit the API documentation at https://dev.frmcs.app.',
     },
     error: null,
   });

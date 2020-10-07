@@ -4,16 +4,16 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import { createConnection, Connection, Repository } from 'typeorm';
-import Subteam from '../entities/subteam.entity';
+import Role from '../entities/role.entity';
 import { User } from '../entities/user.entity';
 
-export default class SubteamController {
-  private repository!: Repository<Subteam>;
+export default class RoleController {
+  private repository!: Repository<Role>;
 
   constructor() {
-    SubteamController.connect()
+    RoleController.connect()
       .then((con) => {
-        this.repository = con.getRepository(Subteam);
+        this.repository = con.getRepository(Role);
       })
       .catch((err) => {
         throw new Error(err);
@@ -26,14 +26,14 @@ export default class SubteamController {
     return connection;
   }
 
-  async createSubteam(name: string, owner: User): Promise<Subteam> {
-    const subteam = this.repository.create({
+  async createRole(name: string, permissions: Record<string, unknown>): Promise<Role> {
+    const role = this.repository.create({
       name,
-      owner,
+      permissions,
     });
 
-    await this.repository.save(subteam);
+    await this.repository.save(role);
 
-    return subteam;
+    return role;
   }
 }

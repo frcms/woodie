@@ -5,7 +5,17 @@
  */
 import express from 'express';
 
+import UserController from '../../../controllers/user.controller';
+
+const uc = new UserController();
+
 const router = express.Router();
+
+interface UserObject {
+  username: string;
+  email: string;
+  password: string;
+}
 
 router.post('/login', (req, res) => {
   res.status(200).send({
@@ -17,7 +27,11 @@ router.post('/login', (req, res) => {
   });
 });
 
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
+  console.log(req.body);
+  const user = req.body as UserObject;
+  await uc.createUser(user.username, user.email, user.password);
+
   res.status(200).send({
     code: 200,
     payload: {
@@ -26,5 +40,7 @@ router.post('/register', (req, res) => {
     error: null,
   });
 });
+
+// @todo OAuth Register and Login
 
 export default router;

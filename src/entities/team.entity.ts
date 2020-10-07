@@ -6,36 +6,39 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 // eslint-disable-next-line import/no-cycle
+import { User } from './user.entity';
 import Role from './role.entity';
-// eslint-disable-next-line import/no-cycle
 import Subteam from './subteam.entity';
 
-export interface Name {
-  first: string;
-  last: string;
-}
-
 @Entity()
-export class User {
+export default class Team {
   @PrimaryGeneratedColumn()
   id!: number;
 
   @Column()
-  username!: string;
+  name!: string;
 
   @Column()
-  email!: string;
+  type!: string; // FRC, FTC, FLL, maybe VEX?
 
   @Column()
-  password!: string;
-
-  @Column()
-  subteam!: Subteam;
+  teamNumber!: string;
 
   @Column()
   roles!: Array<Role>;
 
-  // @todo add back
-  // subteam: SubteamSchema,
-  // permissions: [PermissionSchema],
+  @Column()
+  subteams!: Array<Subteam>;
+
+  @Column()
+  location!: string;
+
+  @Column()
+  rookieYear!: number;
+
+  @Column()
+  sponsors!: Array<string>;
+
+  @Column()
+  members!: Array<User>;
 }

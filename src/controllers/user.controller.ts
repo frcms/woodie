@@ -29,13 +29,11 @@ export default class UserController {
   async createUser(
     username: string,
     email: string,
-    subteam: Subteam,
     password: string,
   ): Promise<User> {
     const user = this.repository.create({
       username,
       email,
-      subteam,
       password,
     });
 
