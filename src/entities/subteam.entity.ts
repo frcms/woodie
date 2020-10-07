@@ -5,9 +5,6 @@
  */
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-// eslint-disable-next-line import/no-cycle
-import { User } from './user.entity';
-
 @Entity()
 export default class Subteam {
   @PrimaryGeneratedColumn()
@@ -17,8 +14,8 @@ export default class Subteam {
   name!: string;
 
   @Column()
-  owner!: User;
+  owner!: number;
 
-  @Column()
-  members!: Array<User>;
+  @Column('simple-array')
+  members!: number[];
 }

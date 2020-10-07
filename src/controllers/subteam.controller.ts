@@ -5,7 +5,6 @@
  */
 import { createConnection, Connection, Repository } from 'typeorm';
 import Subteam from '../entities/subteam.entity';
-import { User } from '../entities/user.entity';
 
 export default class SubteamController {
   private repository!: Repository<Subteam>;
@@ -26,7 +25,7 @@ export default class SubteamController {
     return connection;
   }
 
-  async createSubteam(name: string, owner: User): Promise<Subteam> {
+  async createSubteam(name: string, owner: number): Promise<Subteam> {
     const subteam = this.repository.create({
       name,
       owner,

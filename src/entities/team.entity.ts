@@ -5,11 +5,6 @@
  */
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-// eslint-disable-next-line import/no-cycle
-import { User } from './user.entity';
-import Role from './role.entity';
-import Subteam from './subteam.entity';
-
 @Entity()
 export default class Team {
   @PrimaryGeneratedColumn()
@@ -19,26 +14,14 @@ export default class Team {
   name!: string;
 
   @Column()
-  type!: string; // FRC, FTC, FLL, maybe VEX?
+  admin!: number;
 
   @Column()
-  teamNumber!: string;
+  type!: 'FRC' | 'FTC' | 'FLL';
 
-  @Column()
-  roles!: Array<Role>;
+  @Column('simple-array')
+  subteams!: number[];
 
-  @Column()
-  subteams!: Array<Subteam>;
-
-  @Column()
-  location!: string;
-
-  @Column()
-  rookieYear!: number;
-
-  @Column()
-  sponsors!: Array<string>;
-
-  @Column()
-  members!: Array<User>;
+  @Column('simple-array')
+  members!: number[];
 }

@@ -5,26 +5,26 @@
  */
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-// eslint-disable-next-line import/no-cycle
-import { User } from './user.entity';
-
 @Entity()
-export default class Subteam {
+export default class Post {
   @PrimaryGeneratedColumn()
   id!: number;
 
   @Column()
   title!: string;
 
-  @Column()
-  author!: User;
+  @Column() // Users ID
+  author!: number;
 
   @Column()
-  content!: JSON;
+  markdown!: string;
 
   @Column()
-  date!: Date;
+  source!: string;
 
   @Column()
-  tags!: Array<string>;
+  date!: string; // This is an ISO timestamp
+
+  @Column('simple-array')
+  tags!: string[];
 }

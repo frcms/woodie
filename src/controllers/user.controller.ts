@@ -4,8 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import { createConnection, Connection, Repository } from 'typeorm';
-import Subteam from '../entities/subteam.entity';
-import { User } from '../entities/user.entity';
+import User from '../entities/user.entity';
 
 export default class UserController {
   private repository!: Repository<User>;
@@ -26,11 +25,7 @@ export default class UserController {
     return connection;
   }
 
-  async createUser(
-    username: string,
-    email: string,
-    password: string,
-  ): Promise<User> {
+  async createUser(username: string, email: string, password: string): Promise<User> {
     const user = this.repository.create({
       username,
       email,

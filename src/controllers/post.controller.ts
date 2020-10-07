@@ -4,15 +4,15 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import { createConnection, Connection, Repository } from 'typeorm';
-import Blog from '../entities/blog.entity';
+import Post from '../entities/post.entity';
 
-export default class BlogController {
-  private repository!: Repository<Blog>;
+export default class PostController {
+  private repository!: Repository<Post>;
 
   constructor() {
-    BlogController.connect()
+    PostController.connect()
       .then((con) => {
-        this.repository = con.getRepository(Blog);
+        this.repository = con.getRepository(Post);
       })
       .catch((err) => {
         throw new Error(err);

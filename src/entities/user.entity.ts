@@ -5,18 +5,8 @@
  */
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-// eslint-disable-next-line import/no-cycle
-import Role from './role.entity';
-// eslint-disable-next-line import/no-cycle
-import Subteam from './subteam.entity';
-
-export interface Name {
-  first: string;
-  last: string;
-}
-
 @Entity()
-export class User {
+export default class User {
   @PrimaryGeneratedColumn()
   id!: number;
 
@@ -30,12 +20,8 @@ export class User {
   password!: string;
 
   @Column()
-  subteam!: Subteam;
+  team!: number;
 
   @Column()
-  roles!: Array<Role>;
-
-  // @todo add back
-  // subteam: SubteamSchema,
-  // permissions: [PermissionSchema],
+  roles!: 'Admin' | 'Mentor' | 'Sub-team Leader' | 'Member';
 }
