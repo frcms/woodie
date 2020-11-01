@@ -4,6 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 import { createConnection, Connection, Repository } from 'typeorm';
+import * as bcrypt from 'bcrypt';
 import User from '../entities/user.entity';
 
 export default class UserController {
@@ -35,6 +36,18 @@ export default class UserController {
     await this.repository.save(user);
 
     return user;
+  }
+
+  async checkUser(username: string, password: string): Promise<boolean> {
+    const user = await this.repository.findOne({
+      username,
+    });
+
+    if (!user) return false;
+
+    const correct = await bcrypt.compare(password, user.password);
+
+    return correct;
   }
 
   async updateUser(id: number, update: Record<string, unknown>): Promise<void> {
